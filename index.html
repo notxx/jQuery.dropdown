@@ -1,0 +1,31 @@
+﻿<!DOCTYPE html>
+<html manifest="/data/ppth.appcache">
+<head>
+	<link rel="stylesheet" href="jquery.dropdown.css" />
+	<style>
+	</style>
+	<meta charset="utf-8" />
+	<title>jQuery.dropdown test drive</title>
+</head>
+<body>
+	<h3>jQuery.dropdown test drive</h3>
+	<input type="text" name="name" />
+	<script src="//ajax.aspnetcdn.com/ajax/jquery/jquery-2.1.0.min.js"></script>
+	<script defer="defer" src="//ajax.aspnetcdn.com/ajax/jquery.ui/1.10.4/jquery-ui.min.js"></script>
+	<script defer="defer" src="jquery.dropdown.js"></script>
+	<script defer="defer">
+$(function () {
+
+$(document.head).append($("<link id=\"ui-theme\" rel=\"stylesheet\">")
+		.attr("href", (window.localStorage && localStorage.theme_url) ? localStorage.theme_url : "//ajax.aspnetcdn.com/ajax/jquery.ui/1.10.4/themes/smoothness/jquery-ui.css"));
+
+var $name = $("[name=name]");
+$name.autocomplete({
+	minLength: 0,
+	source: [ "test1", "test2", "test3" ],
+}).dropdown();
+
+});
+	</script>
+</body>
+</html>
