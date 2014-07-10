@@ -9,7 +9,25 @@
 </head>
 <body>
 	<h3>jQuery.dropdown test drive</h3>
-	<input type="text" name="name" />
+	<table style="table-layout: fixed; border-collapse: collapse;">
+		<colgroup>
+			<col width="25%">
+			<col width="25%">
+			<col width="25%">
+			<col width="25%">
+		</colgroup>
+		<tbody>
+			<tr>
+				<td><input type="text" class="dropdown" /></td>
+			</tr><tr>
+				<td colspan="2"><input type="text" class="dropdown" /></td>
+			</tr><tr>
+				<td colspan="3"><input type="text" class="dropdown" /></td>
+			</tr><tr>
+				<td colspan="4"><input type="text" class="dropdown" /></td>
+			</tr>
+		</tbody>
+	</table>
 	<script src="//ajax.aspnetcdn.com/ajax/jquery/jquery-2.1.0.min.js"></script>
 	<script defer="defer" src="//ajax.aspnetcdn.com/ajax/jquery.ui/1.10.4/jquery-ui.min.js"></script>
 	<script defer="defer" src="jquery.dropdown.js"></script>
@@ -19,8 +37,8 @@ $(function () {
 $(document.head).append($("<link id=\"ui-theme\" rel=\"stylesheet\">")
 		.attr("href", (window.localStorage && localStorage.theme_url) ? localStorage.theme_url : "//ajax.aspnetcdn.com/ajax/jquery.ui/1.10.4/themes/smoothness/jquery-ui.css"));
 
-var $name = $("[name=name]");
-$name.autocomplete({
+var $dropdown = $(".dropdown");
+$dropdown.autocomplete({
 	minLength: 0,
 	source: [ "test1", "test2", "test3" ],
 }).dropdown();

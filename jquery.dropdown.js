@@ -27,13 +27,17 @@ methods.init = function(options) {
 		$input.trigger("dropdownalways");
 	});
 	$input.addClass("dropdown")
-	.after($('<div style="clear:both;"></div>'))
+//	.after($('<div style="clear:both;"></div>'))
 	.after($button);
-	if ($input.data("ui-autocomplete")) {
-		$input.on("dropdownopen", function() { $input.autocomplete("search"); });
-		$input.on("dropdownclose", function() { $input.autocomplete("close"); });
-		$input.on("autocompleteclose", function() { $input.dropdown("close"); });
-	}
+	$input.each(function() {
+		var $input = $(this);
+		if ($input.data("ui-autocomplete")) {
+			$input.on("dropdownopen", function() { $input.autocomplete("search"); });
+			$input.on("dropdownclose", function() { $input.autocomplete("close"); });
+			$input.on("autocompleteopen", function() { $input.dropdown("open"); });
+			$input.on("autocompleteclose", function() { $input.dropdown("close"); });
+		}
+	});
 	return this;
 };
 methods.open = function() {
