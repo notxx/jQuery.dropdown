@@ -3,13 +3,14 @@ if (!$ || !$.fn) return;
 
 var methods = {};
 methods.init = function(options) {
-	var $input = this;
+	var $input = this, $widget = $input.parent();
+	if ($widget.data("options")) { return; }
 	if (typeof options === "object")
 		options = $.extend({}, defaults, options);
 	else
 		options = $.extend({}, defaults);
 	$input.wrap("<div class='dropdown'>");
-	var $widget = $input.parent().data("options", options);
+	$widget = $input.parent().data("options", options);
 	var $button = $("<span class='dropdown'>").append("<span class='ui-icon ui-icon-triangle-1-s'>").click(function() {
 		var $button = $(this), $icon = $button.find(".ui-icon"), 
 			$widget = $button.closest("div.dropdown"), $input = $widget.find("input.dropdown");
