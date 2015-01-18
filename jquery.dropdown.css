@@ -1,8 +1,18 @@
 @charset "utf-8";
 
+/* 输入框 */
 div.dropdown { display: -webkit-flex; display: flex; -webkit-align-items: center; align-items: center; }
 div.dropdown input.dropdown { -webkit-flex: 1; flex: 1; }
 div.dropdown input.dropdown::-ms-clear { display: none; }
 div.dropdown span.dropdown { -webkit-user-select: none; -moz-user-select: none; -ms-user-select: none; -o-user-select: none; user-select: none; }
 div.dropdown span.dropdown { width: 28px; height: 28px; margin-left: -28px; /* background: rgba(255,0,0,.1); */ cursor: pointer; }
 div.dropdown span.dropdown span.ui-icon { margin: 6px; -webkit-transition: transform .3s ease-in; transition: transform .3s ease-in; }
+
+/* 其他元件 */
+a.dropdown, font.dropdown, span.dropdown { }
+a.dropdown:after, font.dropdown:after, span.dropdown:after { color: transparent; opacity: 0; -webkit-transition: opacity 1s ease-in-out; transition: opacity 1s ease-in-out; content: "▼"; }
+.dropdown.hover { cursor: pointer; color: blue; /*text-decoration: underline;*/ }
+.dropdown.hover:after { color: blue; opacity: 1; }
+ul.menu.dropdown { display: none; position: absolute; left: 0; top: 0; }
+ul.menu.dropdown .ui-menu-item { margin: .4em; border: 1px solid transparent; }
+ul.menu.dropdown .ui-menu-item:hover { text-decoration: underline; }

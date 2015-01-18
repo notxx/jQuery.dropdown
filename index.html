@@ -25,6 +25,12 @@
 				<td colspan="3"><input type="text" class="dropdown" /></td>
 			</tr><tr>
 				<td colspan="4"><input type="text" class="dropdown" /></td>
+			</tr><tr>
+				<td colspan="2"><a class="dropdown">a</a></td>
+			</tr><tr>
+				<td colspan="3"><span class="dropdown">aa</span></td>
+			</tr><tr>
+				<td colspan="4"><font class="dropdown">aaa</font></td>
 			</tr>
 		</tbody>
 	</table>
@@ -41,7 +47,8 @@ var $dropdown = $(".dropdown");
 $dropdown.autocomplete({
 	minLength: 0,
 	source: [ "test1", "test2", "test3" ],
-}).dropdown();
+}).dropdown({ items: [ "a", "b", "c"] });
+//$dropdown = $("a.dropdown span.dropdown font.dropdown").dropdown();
 
 });
 	</script>
